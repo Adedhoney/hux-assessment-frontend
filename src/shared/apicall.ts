@@ -29,13 +29,13 @@ export interface User {
     lastModifiedOn: number
 }
 
-interface Contact {
+export interface Contact {
     _id: string
     contactId: string
     userId: string
     firstName: string
     lastName: string
-    phonr: string
+    phone: string
     email: string
     createdOn: number
     lastModifiedOn: number

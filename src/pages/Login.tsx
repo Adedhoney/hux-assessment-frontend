@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { doLogin } from "../shared/apicall"
-import { noAccessRedirect } from "../components/redirects"
+import { hasAccessRedirect } from "../components/redirects"
 
 const Login: React.FC = () => {
     const [email, setEmail] = useState("")
@@ -9,7 +9,7 @@ const Login: React.FC = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        noAccessRedirect()
+        hasAccessRedirect()
     }, [])
 
     const handleSubmit = async (e: React.FormEvent) => {

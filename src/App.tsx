@@ -8,8 +8,9 @@ import {
 import { AppProvider } from "./AppContext"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
-
+import Dashboard from "./pages/Dashboard"
 import "./App.css"
+import ContactPage from "./pages/Contact"
 
 const App: React.FC = () => {
     return (
@@ -24,6 +25,18 @@ const App: React.FC = () => {
                         <Route
                             path="/register"
                             element={<Register />}
+                        />
+                        <Route
+                            path="/"
+                            element={<Home />}
+                        />
+                        <Route
+                            path="/dashboard"
+                            element={<Dashboard />}
+                        />
+                        <Route
+                            path="/contact/:contactId"
+                            element={<ContactPage />}
                         />
                     </Routes>
                 </div>

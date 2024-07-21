@@ -19,7 +19,7 @@ interface LoginData {
     password: string
 }
 
-interface User {
+export interface User {
     _id: string
     userId: string
     email: string
@@ -277,5 +277,5 @@ export const logout = () => {
     )
 
     localStorage.clear()
-    window.location.href = "/"
+    window.location.href = "/login"
 }

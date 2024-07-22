@@ -61,7 +61,7 @@ const EditContactForm: React.FC<{
                         />
 
                         <input
-                            type="number"
+                            type="tel"
                             placeholder="Phone number"
                             value={phone}
                             onChange={(e) =>
@@ -70,7 +70,7 @@ const EditContactForm: React.FC<{
                             required
                         />
                         <input
-                            type="number"
+                            type="text"
                             placeholder="email"
                             value={email}
                             onChange={(e) =>

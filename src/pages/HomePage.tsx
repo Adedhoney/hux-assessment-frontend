@@ -1,10 +1,10 @@
 import React, { useContext, useEffect } from "react"
-import { useNavigate } from "react-router-dom"
+// import { useNavigate } from "react-router-dom"
 import { AppContext, IAppContext } from "../AppContext"
 import { getUser } from "../shared/apicall"
 
-const Login: React.FC = () => {
-    const navigate = useNavigate()
+const HomePage: React.FC = () => {
+    // const navigate = useNavigate()
 
     const { user, setUser } = useContext(
         AppContext
@@ -24,16 +24,19 @@ const Login: React.FC = () => {
     })
 
     return (
-        <div className="auth-container">
+        <div className="dashboard-container">
             <div className="alternate-action">
                 <h1>Welcome to Contact App</h1>
-                <p>You can create a new contact</p>
-                <p>Search Contacts</p>
-                <p>Edit a contact</p>
-                <p>Delete a contact</p>
+                <p>Your lorem ipsum doloe</p>
+                <div className="homepage-info">
+                    <p>You can create a new contact</p>
+                    <p>Search Contacts</p>
+                    <p>Edit a contact</p>
+                    <p>Delete a contact</p>
+                </div>
             </div>
         </div>
     )
 }
 
-export default Login
+export default HomePage

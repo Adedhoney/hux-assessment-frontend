@@ -1,42 +1,297 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+/* styles.css */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #5a6ad6, #44ff8c);
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Log in and register */
+
+.auth-container {
+    margin: auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 40px;
+    width: 300px;
+    max-width: 90%;
+    text-align: center;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.auth-form h2 {
+    margin-bottom: 20px;
+    color: #fff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
 }
 
-.card {
-  padding: 2em;
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #ffffffb0;
 }
 
-.read-the-docs {
-  color: #888;
+.red {
+    color: red !important;
+}
+
+.homepage-info {
+    margin: 20px 60px;
+    text-align: left;
+}
+
+.form-group input {
+    width: calc(100% - 20px);
+    background: #51929f;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+::placeholder {
+    width: calc(100% - 20px);
+    background: #51929f;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #ffffff8b;
+}
+.form-group select {
+    width: 100%;
+    background: #3b5e81;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #ffffffd2;
+}
+
+.auth-form button {
+    background: #2c3e50;
+
+    width: 100%;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.auth-form button:hover {
+    background: #000000;
+}
+
+.auth-form .alternate-action {
+    margin-top: 15px;
+    color: #fff;
+}
+
+.auth-form .alternate-action a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.auth-form .alternate-action a:hover {
+    text-decoration: underline;
+}
+
+/* Dash board */
+
+.dashboard-container {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    /* padding: 20px; */
+    width: 80%;
+    max-width: 1200px;
+    height: 80vh;
+    max-height: 90%;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+}
+
+.dashboard-head {
+    position: relative;
+    display: flexbox;
+    width: 100%;
+    text-align: center;
+}
+
+.contact-form-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 99;
+}
+
+.form-button {
+    background: #2c3e50;
+
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+.add-contact-button {
+    position: absolute;
+    top: 13px;
+    right: 20px;
+}
+
+.contact-form {
+    background: #59afade9;
+    padding: 20px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+
+    z-index: 100; /* On top of everything */
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button-div {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+.contact-list {
+    width: 100%;
+    max-height: 100%;
+    list-style: none;
+    border-bottom: 1px solid rgba(245, 244, 244, 0.2);
+}
+
+.contact-list p {
+    margin: 0;
+    padding: 10px;
+}
+
+.contact-list :hover {
+    cursor: pointer;
+    background-color: #ffffff16;
+}
+.contact-container {
+    margin: auto;
+    margin-top: 30px;
+    border-radius: 15px;
+    padding: 20px;
+    width: 80%;
+    align-self: stretch;
+    max-width: 1200px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+.contact-button {
+    background: #2c3e50;
+
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.grid12 {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    text-align: left;
+    border-bottom: 1px solid rgba(245, 244, 244, 0.2);
+}
+
+.logout {
+    position: absolute;
+    right: 30px;
+    top: 50px;
+    background-color: red;
+}
+.back {
+    position: relative;
+    right: 154px;
+    margin-bottom: 5px;
+}
+
+@media (max-width: 700px) {
+    .contact-container {
+        padding: 5px;
+        width: 95%;
+        box-shadow: none;
+    }
+    #root {
+        padding: 1rem;
+    }
+    .dashboard-container {
+        width: 100%;
+        padding-bottom: 60px;
+    }
+    .contact-form {
+        width: 80%;
+    }
+
+    .contact-list {
+        grid-gap: 3px;
+    }
+    .add-contact-button {
+        right: 5px;
+        padding: 10px 10px;
+    }
+
+    .welcome-head {
+        margin: 0 5px;
+        display: flex;
+        flex-direction: column;
+    }
+    .logout {
+        position: relative;
+        right: 0px;
+        top: 0px;
+        align-self: flex-end;
+        justify-self: flex-end;
+    }
 }

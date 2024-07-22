@@ -11,6 +11,7 @@ import Register from "./pages/Register"
 import Dashboard from "./pages/Dashboard"
 import "./App.css"
 import ContactPage from "./pages/Contact"
+import HomePage from "./pages/HomePage"
 
 const App: React.FC = () => {
     return (
@@ -28,7 +29,7 @@ const App: React.FC = () => {
                         />
                         <Route
                             path="/"
-                            element={<Home />}
+                            element={<HomePage />}
                         />
                         <Route
                             path="/dashboard"

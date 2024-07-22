@@ -54,7 +54,7 @@ const ContactForm: React.FC<{ handleToggle: any }> = (
                         />
 
                         <input
-                            type="number"
+                            type="tel"
                             placeholder="Phone number"
                             value={phone}
                             onChange={(e) =>
@@ -63,7 +63,7 @@ const ContactForm: React.FC<{ handleToggle: any }> = (
                             required
                         />
                         <input
-                            type="number"
+                            type="text"
                             placeholder="email"
                             value={email}
                             onChange={(e) =>

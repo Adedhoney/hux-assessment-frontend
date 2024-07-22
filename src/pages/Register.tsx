@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { signUp } from "../shared/apicall"
 import { useNavigate } from "react-router-dom"
 import { hasAccessRedirect } from "../components/redirects"
+import Swal from "sweetalert2"
 
 const Register: React.FC = () => {
     const [firstName, setFirstName] = useState("")
@@ -19,9 +20,6 @@ const Register: React.FC = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         if (password !== confirmPassword) {
-            // errorMessage(
-            //     "Make sure password and confirm password are the same"
-            // )
             return
         }
         try {
@@ -31,11 +29,18 @@ const Register: React.FC = () => {
                 email,
                 password,
             })
-
             navigate("/login")
             // should add awaiting animation later and one that will display error
         } catch (error) {
-            console.error("Registration error:", error)
+            await Swal.fire({
+                text: (error as Error).message,
+                confirmButtonText: "Continue",
+                icon: "error",
+                color: "#fff",
+                background: "#59afade9",
+                confirmButtonColor: "#2c3e50",
+                focusConfirm: false,
+            })
         }
     }
 
@@ -53,7 +58,7 @@ const Register: React.FC = () => {
                     <input
                         type="text"
                         name="firstName"
-                        placeholder="Username"
+                        placeholder="First name"
                         value={firstName}
                         onChange={(e) =>
                             setFirstName(e.target.value)
@@ -67,7 +72,7 @@ const Register: React.FC = () => {
                     <input
                         type="text"
                         name="lastName"
-                        placeholder="Username"
+                        placeholder="Last name"
                         value={lastName}
                         onChange={(e) =>
                             setLastName(e.target.value)
@@ -78,7 +83,7 @@ const Register: React.FC = () => {
                     <label htmlFor="">Email</label>
                     <input
                         type="text"
-                        placeholder="email"
+                        placeholder="Email"
                         value={email}
                         onChange={(e) =>
                             setEmail(e.target.value)
@@ -97,7 +102,14 @@ const Register: React.FC = () => {
                         required
                     />
 
-                    <label htmlFor="">
+                    <label
+                        className={`${
+                            password &&
+                            password !== confirmPassword
+                                ? "red"
+                                : ""
+                        }`}
+                    >
                         Confirm password
                     </label>
                     <input
@@ -115,6 +127,12 @@ const Register: React.FC = () => {
 
                 <button type="submit">Register</button>
             </form>
+            <div className="alternate-action">
+                <p>
+                    Already have an account?{" "}
+                    <a href="/login">Login</a>
+                </p>
+            </div>
         </div>
     )
 }

@@ -2,10 +2,10 @@ import axios, { AxiosError } from "axios"
 import config from "./config"
 // import { errorMessage, successMessage } from "./alert"
 
-const enum responseStatus {
-    success = "success",
-    error = "error",
-}
+// const enum responseStatus {
+//     success = "success",
+//     error = "error",
+// }
 
 interface SignUpData {
     email: string
@@ -123,6 +123,9 @@ export const addContact = async (
     contact: SaveContactData
 ) => {
     try {
+        if (!contact.email) {
+            delete contact.email
+        }
         const response = await axios.post(
             `${config.BASE_BACKEND_URL}/contact`,
             { data: contact },
@@ -154,6 +157,9 @@ export const updateContact = async (
     contact: UpdateContactData
 ) => {
     try {
+        if (!contact.email) {
+            delete contact.email
+        }
         const response = await axios.post(
             `${config.BASE_BACKEND_URL}/contact/update/${contactId}`,
             { data: contact },

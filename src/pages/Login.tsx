@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { doLogin } from "../shared/apicall"
 import { hasAccessRedirect } from "../components/redirects"
+import Swal from "sweetalert2"
 
 const Login: React.FC = () => {
     const [email, setEmail] = useState("")
@@ -16,9 +17,17 @@ const Login: React.FC = () => {
         e.preventDefault()
         try {
             await doLogin({ email, password })
-            navigate("/")
+            navigate("/dashboard")
         } catch (error) {
-            // console.error("Login error:", error)
+            await Swal.fire({
+                text: (error as Error).message,
+                confirmButtonText: "Continue",
+                icon: "error",
+                color: "#fff",
+                background: "#59afade9",
+                confirmButtonColor: "#2c3e50",
+                focusConfirm: false,
+            })
         }
     }
 

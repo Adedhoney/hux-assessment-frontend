@@ -1,8 +1,14 @@
 import React, { useState } from "react"
-import { Contact, updateContact } from "../shared/apicall"
+import {
+    Contact,
+    getSingleContact,
+    updateContact,
+} from "../shared/apicall"
+import Swal from "sweetalert2"
 
 const EditContactForm: React.FC<{
     handleToggle: any
+    setContact: any
     contact: Contact
 }> = (props: any) => {
     const [firstName, setFirstName] = useState(
@@ -17,18 +23,34 @@ const EditContactForm: React.FC<{
     )
 
     const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault()
-        await updateContact(props.contact, {
-            firstName,
-            lastName,
-            phone,
-            email,
-        })
-        props.handleToggle()
-        setFirstName("")
-        setLastName("")
-        setPhone("")
-        setEmail("")
+        try {
+            e.preventDefault()
+            await updateContact(props.contact.contactId, {
+                firstName,
+                lastName,
+                phone,
+                email,
+            })
+            props.handleToggle()
+            setFirstName("")
+            setLastName("")
+            setPhone("")
+            setEmail("")
+            const newContact = await getSingleContact(
+                props.contact.contactId
+            )
+            props.setContact(newContact)
+        } catch (error) {
+            await Swal.fire({
+                text: (error as Error).message,
+                confirmButtonText: "Continue",
+                icon: "error",
+                color: "#fff",
+                background: "#59afade9",
+                confirmButtonColor: "#2c3e50",
+                focusConfirm: false,
+            })
+        }
     }
 
     return (

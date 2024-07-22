@@ -37,7 +37,7 @@ const ContactPage: React.FC = () => {
                 setUser!(user!)
             })()
         }
-    })
+    }, [])
 
     useEffect(() => {
         ;(async () => {
@@ -46,7 +46,7 @@ const ContactPage: React.FC = () => {
             )
             setContact(contactInfo!)
         })()
-    })
+    }, [])
 
     const [editingContact, setEditingContact] =
         useState<Contact | null>(null)
@@ -90,6 +90,7 @@ const ContactPage: React.FC = () => {
             <>
                 {editingContact && (
                     <EditContactForm
+                        setContact={setContact}
                         handleToggle={closeEdit}
                         contact={editingContact}
                     />

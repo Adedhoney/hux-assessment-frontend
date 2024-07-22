@@ -1,5 +1,10 @@
-import React, { useState } from "react"
-import { addContact } from "../shared/apicall"
+import React, { useContext, useState } from "react"
+import {
+    addContact,
+    getAllUserContacts,
+} from "../shared/apicall"
+import { AppContext, IAppContext } from "../AppContext"
+import Swal from "sweetalert2"
 
 const ContactForm: React.FC<{ handleToggle: any }> = (
     props: any
@@ -9,19 +14,38 @@ const ContactForm: React.FC<{ handleToggle: any }> = (
     const [phone, setPhone] = useState("")
     const [email, setEmail] = useState("")
 
+    const { setContacts } = useContext(
+        AppContext
+    ) as IAppContext
+
     const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault()
-        await addContact({
-            firstName,
-            lastName,
-            phone,
-            email,
-        })
-        props.handleToggle()
-        setFirstName("")
-        setLastName("")
-        setPhone("")
-        setEmail("")
+        try {
+            e.preventDefault()
+            await addContact({
+                firstName,
+                lastName,
+                phone,
+                email,
+            })
+
+            props.handleToggle()
+            setFirstName("")
+            setLastName("")
+            setPhone("")
+            setEmail("")
+            const users = await getAllUserContacts()
+            setContacts!([...users!])
+        } catch (error) {
+            await Swal.fire({
+                text: (error as Error).message,
+                confirmButtonText: "Continue",
+                icon: "error",
+                color: "#fff",
+                background: "#59afade9",
+                confirmButtonColor: "#2c3e50",
+                focusConfirm: false,
+            })
+        }
     }
 
     return (

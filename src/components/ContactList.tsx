@@ -16,6 +16,7 @@ const ContactList: React.FC = () => {
     ) as IAppContext
     const [loading, setLoading] = useState(false)
     const [search, setSearch] = useState("")
+    loading
 
     useEffect(() => {
         fetchContacts()
@@ -67,6 +68,15 @@ const ContactList: React.FC = () => {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
             />
+
+            {!contacts![0] && (
+                <div>
+                    <p>
+                        Add your first contact to get
+                        started!
+                    </p>
+                </div>
+            )}
 
             <ul>
                 {search

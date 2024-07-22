@@ -28,11 +28,11 @@ const App: React.FC = () => {
                             element={<Register />}
                         />
                         <Route
-                            path="/"
+                            path="/home"
                             element={<HomePage />}
                         />
                         <Route
-                            path="/dashboard"
+                            path="/"
                             element={<Dashboard />}
                         />
                         <Route

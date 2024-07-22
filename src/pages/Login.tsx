@@ -17,7 +17,7 @@ const Login: React.FC = () => {
         e.preventDefault()
         try {
             await doLogin({ email, password })
-            navigate("/dashboard")
+            navigate("/")
         } catch (error) {
             await Swal.fire({
                 text: (error as Error).message,
@@ -39,9 +39,10 @@ const Login: React.FC = () => {
             >
                 <h2>Login</h2>
                 <div className="form-group">
-                    <label htmlFor="">Email</label>
+                    <label htmlFor="email">Email</label>
                     <input
-                        type="text"
+                        type="email"
+                        name="email"
                         placeholder="Email"
                         value={email}
                         onChange={(e) =>

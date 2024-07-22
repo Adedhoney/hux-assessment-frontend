@@ -87,7 +87,8 @@ const ContactForm: React.FC<{ handleToggle: any }> = (
                             required
                         />
                         <input
-                            type="text"
+                            type="email"
+                            name="email"
                             placeholder="email"
                             value={email}
                             onChange={(e) =>

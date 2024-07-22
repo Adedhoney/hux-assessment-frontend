@@ -54,7 +54,8 @@ const HomePage: React.FC = () => {
                             <p>
                                 You can create a new contact
                             </p>
-                            <p>Search Contacts</p>
+                            <p>View all contacts</p>
+                            <p>Search contacts</p>
                             <p>Edit a contact</p>
                             <p>Delete a contact</p>
                         </div>
@@ -80,16 +81,13 @@ const HomePage: React.FC = () => {
                             <button className="form-button homepageButton">
                                 Lorem Ipsum
                             </button>
-                            <button className="form-button homepageButton">
-                                Lorem Ipsum
-                            </button>
                         </div>
                     ) : (
                         <div className="homepageButtons">
                             <button
                                 className="form-button homepageButton"
                                 onClick={() => {
-                                    navigate("/dashboard")
+                                    navigate("/")
                                 }}
                             >
                                 My Contacts

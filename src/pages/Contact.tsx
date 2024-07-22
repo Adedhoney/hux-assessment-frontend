@@ -26,13 +26,14 @@ const ContactPage: React.FC = () => {
         AppContext
     ) as IAppContext
 
+    const token = localStorage.getItem("token")
+    if (!token) {
+        window.location.href = "/"
+    }
+
     useEffect(() => {
         if (!user) {
-            const token = localStorage.getItem("token")
             ;(async () => {
-                if (!token) {
-                    window.location.href = "/"
-                }
                 const user = await getUser()
                 setUser!(user!)
             })()
@@ -71,7 +72,7 @@ const ContactPage: React.FC = () => {
             })
             if (cont.isConfirmed) {
                 await deleteContact(contactId)
-                navigate(`/dashboard`)
+                navigate(`/`)
             }
         } catch (error) {
             console.log()
@@ -81,7 +82,7 @@ const ContactPage: React.FC = () => {
     const navigate = useNavigate()
 
     const handleClick = () => {
-        navigate(`/dashboard`)
+        navigate(`/`)
     }
 
     return (

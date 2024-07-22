@@ -7,7 +7,7 @@ export const hasAccessRedirect = async () => {
             if (token) {
                 const user = await getUser()
                 if (user) {
-                    window.location.href = "/dashboard"
+                    window.location.href = "/"
                 }
             }
         })()

@@ -58,7 +58,7 @@ interface UpdateContactData {
 export const signUp = async (signUpInfo: SignUpData) => {
     try {
         await axios.post(
-            `${config.BASE_BACKEND_URL}/account/sign-up`,
+            `${config.BASE_BACKEND_URL}/account/signup`,
             { data: signUpInfo }
         )
         return
@@ -283,5 +283,5 @@ export const logout = () => {
     )
 
     localStorage.clear()
-    window.location.href = "/"
+    window.location.href = "/home"
 }

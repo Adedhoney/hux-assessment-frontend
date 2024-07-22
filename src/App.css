@@ -141,7 +141,7 @@ input {
     max-height: 90%;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    overflow: hidden;
+    overflow: auto;
 }
 
 .dashboard-head {
@@ -275,11 +275,11 @@ input {
 }
 
 .homepage-paragraph {
-    margin: 20px 60px;
+    margin: 10px 60px;
     /* text-align: left; */
 }
 .homepage-details {
-    margin: 20px 60px;
+    margin: 10px 60px;
     /* text-align: left; */
 }
 .homepageButtons {
@@ -291,11 +291,21 @@ input {
 
 .homepageButton {
     width: 90%;
-    margin-top: 20px;
+    margin-bottom: 30px;
     max-width: 300px;
 }
 
+@media (max-width: 9500px) {
+    .homepage {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 @media (max-width: 700px) {
+    .homepage-paragraph {
+        margin: 10px 30px;
+    }
     .contact-container {
         padding: 5px;
         width: 95%;

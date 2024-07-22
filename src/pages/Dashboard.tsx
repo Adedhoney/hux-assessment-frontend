@@ -16,13 +16,15 @@ const Dashboard: React.FC = () => {
         AppContext
     ) as IAppContext
 
+    const token = localStorage.getItem("token")
+    if (!token) {
+        window.location.href = "/home"
+        return
+    }
+
     useEffect(() => {
         if (!user) {
-            const token = localStorage.getItem("token")
             ;(async () => {
-                if (!token) {
-                    window.location.href = "/"
-                }
                 const user = await getUser()
                 setUser!(user!)
             })()

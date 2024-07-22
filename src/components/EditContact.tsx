@@ -92,7 +92,8 @@ const EditContactForm: React.FC<{
                             required
                         />
                         <input
-                            type="text"
+                            type="email"
+                            name="email"
                             placeholder="email"
                             value={email}
                             onChange={(e) =>

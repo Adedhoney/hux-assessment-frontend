@@ -38,6 +38,12 @@ git clone https://github.com/Adedhoney/hux-assessment-frontend
 
 ## Run the project
 
+0. To install dependencies
+
+    ```bash
+    npm install <!-- from the root folder. You can host the build folder  -->
+    ```
+
 1. To run build
 
     ```bash
